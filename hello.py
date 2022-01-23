@@ -6,5 +6,5 @@ def marco(name):
 
 print(marco("Marco"))
 
-var = 1
-var = var
+#var = 1
+#var = var

@@ -16,3 +16,6 @@ async def add(num1: int, num2: int):
 
 if __name__ == '__main__':
     uvicorn.run(app, port=8080, host='0.0.0.0')
+
+#var = 1
+#var = var
