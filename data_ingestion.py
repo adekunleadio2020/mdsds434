@@ -54,7 +54,7 @@ class DataIngestion:
         values = re.split(",",
                           re.sub('\r\n', '', re.sub('"', '', string_input)))
         row = dict(
-            zip(('state', 'gender', 'year', 'name', 'number', 'created_date'),
+            zip(('Date', 'Open', 'High', 'Low', 'Close', 'Adj. Close', 'Volume'),
                 values))
         return row
 
@@ -76,7 +76,7 @@ def run(argv=None):
         'a file in a Google Storage Bucket.',
         # This example file contains a total of only 10 lines.
         # Useful for developing on a small set of data.
-        default=' gs://spls/gsp290/data_files/head_usa_names.csv')
+        default='gs://msds434-339120/data_files/stocks.csv')
 
     # This defaults to the lake dataset in your BigQuery project. You'll have
     # to create the lake dataset yourself using this command:
