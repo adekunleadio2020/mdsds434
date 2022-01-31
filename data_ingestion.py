@@ -53,6 +53,8 @@ class DataIngestion:
         # Strip out carriage return, newline and quote characters.
         values = re.split(",",
                           re.sub('\r\n', '', re.sub('"', '', string_input)))
+        print("Input: ",string_input)
+        print("Values: ",values)
         row = dict(
             zip(('Date', 'Open', 'High', 'Low', 'Close', 'Adj. Close', 'Volume'),
                 values))
