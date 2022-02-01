@@ -3,3 +3,8 @@ pytest
 black
 fastapi
 uvicorn[standard]
+apache-beam[gcp]
+pandas
+yfinance
+fsspec
+gcsfs
