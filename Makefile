@@ -11,6 +11,9 @@ format:
 run:
 	python main.py
 
+run-stock-advisor:
+	python stockAdvisor.py
+
 run-uvicorn:
 	uvicorn main:app --reload
 
@@ -33,14 +36,16 @@ set-job-env:
 run-job:
 	
 	export PROJECT=msds434-339120
+	
 	gcloud config set project $$PROJECT
 
 	python stock.py $$PROJECT MDB
 
 	#Run the Apache Beam Pipeline
 	python data_ingestion.py --project=$$PROJECT --region=us-central1 --runner=DataflowRunner \
-	--staging_location=gs://$$PROJECT/staging --temp_location gs://$$PROJECT/temp  --template_location gs://$$PROJECT/templates/stocks \
-	--input gs://$$PROJECT/data_files/stocks.csv --save_main_session\
+	--staging_location=gs://$$PROJECT/staging --temp_location gs://$$PROJECT/temp  \
+	--input gs://$$PROJECT/data_files/stocks.csv --save_main_session
 
+	#--template_location gs://$$PROJECT/templates/stocks \
 	
 all: install lint test
