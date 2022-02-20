@@ -1,9 +1,9 @@
-FROM python:3.10-slim
+FROM python:3.7-slim
 
 RUN mkdir -p /app
-COPY . main.py /app/
+COPY . stockAdvisor.py /app/
 WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 8080
-CMD [ "main.py" ]]
+CMD [ "stockAdvisor.py" ]]
 ENTRYPOINT [ "python" ]

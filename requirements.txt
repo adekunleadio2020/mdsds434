@@ -8,4 +8,3 @@ pandas
 yfinance
 fsspec
 gcsfs
-google-cloud-bigquery

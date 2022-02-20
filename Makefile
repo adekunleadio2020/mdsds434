@@ -14,6 +14,9 @@ run:
 run-stock-advisor:
 	python stockAdvisor.py
 
+run-stock-advisor-on-cloud-run:
+	gcloud run deploy msds434 --source . --project msds434-339120
+
 run-uvicorn:
 	uvicorn main:app --reload
 

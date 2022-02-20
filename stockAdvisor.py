@@ -4,7 +4,7 @@ from google.cloud import bigquery
 import json
 
 app = FastAPI()
-client = bigquery.Client()
+client = bigquery.Client(project="msds434-339120")
 
 
 @app.get("/")
