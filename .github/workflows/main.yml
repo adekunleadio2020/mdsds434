@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
   #env:
-  #  PROJECT_ID: ${{ secrets.RUN_PROJECT }}
-  #  RUN_REGION: us-central1
-  #  SERVICE_NAME: helloworld-python
+    PROJECT_ID: ${{ secrets.RUN_PROJECT }}
+    RUN_REGION: us-central1
+    SERVICE_NAME: helloworld-python
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
