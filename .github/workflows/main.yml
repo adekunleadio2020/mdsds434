@@ -12,10 +12,22 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+  env:
+    PROJECT_ID: ${{ secrets.RUN_PROJECT }}
+    RUN_REGION: us-central1
+    SERVICE_NAME: helloworld-python
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      # Setup gcloud CLI
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.RUN_SA_KEY }}
+          project_id: ${{ secrets.RUN_PROJECT }}
 
       - name: setup python 3.8
         uses: actions/setup-python@v1
@@ -33,3 +45,12 @@ jobs:
       - name: format code
         run: | 
           make format
+      - name: deploy to google cloud run
+        if: github.ref == 'refs/heads/master'
+          steps:
+            - name: Deploy app
+              run: make run-stock-advisor-on-cloud-run-prod
+        if: github.ref == 'refs/heads/staging'
+          steps:
+            - name: Deploy app
+              run: make run-stock-advisor-on-cloud-run-stage
