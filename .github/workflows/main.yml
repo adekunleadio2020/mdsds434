@@ -47,5 +47,5 @@ jobs:
           make format
       - name: deploy to product
         if: ${{github.ref == 'refs/heads/master'}}
-        run: make run-stock-advisor-on-cloud-run-prod
-        
+        run: | 
+          make run-stock-advisor-on-cloud-run-prod
