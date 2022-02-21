@@ -45,12 +45,7 @@ jobs:
       - name: format code
         run: | 
           make format
-      - name: deploy to google cloud run
-        if: github.ref == 'refs/heads/master'
-          steps:
-            - name: Deploy app
-              run: make run-stock-advisor-on-cloud-run-prod
-        if: github.ref == 'refs/heads/staging'
-          steps:
-            - name: Deploy app
-              run: make run-stock-advisor-on-cloud-run-stage
+      - name: deploy to product
+        if: ${{github.ref == 'refs/heads/master'}}
+        run: make run-stock-advisor-on-cloud-run-prod
+        
