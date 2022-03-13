@@ -18,7 +18,7 @@ run-stock-advisor-on-cloud-run:
 	gcloud run deploy msds434 --source . --project msds434-339120
 
 run-stock-advisor-on-cloud-run-prod:
-	gcloud run deploy msds434-prod --source . --project msds434-339120
+	gcloud run deploy msds434 --source . --project msds434-339120
 
 run-stock-advisor-on-cloud-run-stage:
 	gcloud run deploy msds434-stage --source . --project msds434-339120
