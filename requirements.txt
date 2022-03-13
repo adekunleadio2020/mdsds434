@@ -8,4 +8,8 @@ pandas
 yfinance
 fsspec
 gcsfs
+<<<<<<< HEAD
 python-multipart
+=======
+gcloud
+>>>>>>> 30a7d594a799af60e1c4ea6539bad9576bbc1ddb
